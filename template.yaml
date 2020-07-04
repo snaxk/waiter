@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  ProcessOrder:
+    Type: AWS::SQS::Queue
+    Properties:
+      KmsMasterKeyId: alias/aws/sqs
+      QueueName: !Sub ${EnvironmentTagName}-${StackTagName}-process-order
+  PlaceOrder:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${EnvironmentTagName}-${StackTagName}-place-order
+      Description: !Sub
+        - Stack ${StackTagName} Environment ${EnvironmentTagName} Function ${ResourceName}
+        - ResourceName: PlaceOrder
+      CodeUri: services/order/place-order
+      Handler: lib/index.handler
+      Runtime: nodejs12.x
+      MemorySize: 256
+      Timeout: 30
+      Tracing: Active
+      Policies:
+        - AWSXrayWriteOnlyAccess
+      Events:
+        ProcessOrder:
+          Type: SQS
+          Properties:
+            Queue: !GetAtt ProcessOrder.Arn
+            BatchSize: 1
+Parameters:
+  StackTagName:
+    Type: String
+    Description: Stack Name (injected by Stackery at deployment time)
+  EnvironmentTagName:
+    Type: String
+    Description: Environment Name (injected by Stackery at deployment time)

@@ -1,0 +1,29 @@
+{
+  "name": "@snaxk/waiter",
+  "version": "0.1.0",
+  "description": "Waiter service",
+  "private": true,
+  "scripts": {
+    "bootstrap": "npx lerna clean --yes && npx lerna bootstrap",
+    "build": "npx lerna run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snaxk/waiter.git"
+  },
+  "author": "Fernando <lfernandoavalos@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snaxk/waiter/issues"
+  },
+  "homepage": "https://github.com/snaxk/waiter#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "3.5.0",
+    "@typescript-eslint/parser": "3.5.0",
+    "eslint": "7.4.0",
+    "eslint-config-prettier": "6.11.0",
+    "jest": "26.1.0",
+    "lerna": "^3.22.1",
+    "typescript": "3.9.6"
+  }
+}

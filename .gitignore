@@ -1,0 +1,16 @@
+.aws-sam
+.DS_Store
+.env
+.envrc
+.eslintcache
+.stackery
+.aws-sam
+.vscode
+.idea
+.log
+services/**/lib
+services/**/dist
+node_modules
+packages/*/lib
+services/**/coverage
+packages/**/coverage

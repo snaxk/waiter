@@ -1,0 +1,10 @@
+# AWS-Specific Config
+# Load config from ~/.aws/config
+export AWS_SDK_LOAD_CONFIG=true
+# Profile name to be used in ~/.aws/*
+export AWS_PROFILE=snaxk
+
+# Stackery config
+export STACKERY_ENV_NAME=YOUR-STACKERY-ENV-NAME
+export STACKERY_EMAIL=YOUR-STACKERY-EMAIL
+export STACKERY_PASSWORD=YOUR-STACKERY-PASSWORD
